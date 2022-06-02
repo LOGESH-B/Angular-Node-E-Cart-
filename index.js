@@ -37,7 +37,6 @@ app.get('/products', (req, res, next) => {
 
 app.get('/cart', async (req, res, next) => {
   const carts = await Cart.find({}).populate('card_id').then(found => {
-    console.log("poda", found[0].card_id)
     res.json(found)
   })
 })
@@ -54,11 +53,9 @@ app.post('/cart', bodyParser.json(), async (req, res, next) => {
       console.log(element)   
       if(element==card_id && flag==1) {
         flag=0
-        console.log('0000000000000') 
       }
     })
     if(flag!=0 ){
-      console.log('ppppppp')
       console.log(found)
       await found.card_id.push(card_id)
       console.log(found)
@@ -76,8 +73,8 @@ app.post('/cart', bodyParser.json(), async (req, res, next) => {
     console.log(found)
     await found.card_id.push(card_id)
     console.log(found)
-    //await found.save()
-    //res.json(found)
+    await found.save()
+    res.json(found)
   })
 
 
@@ -85,7 +82,6 @@ app.post('/cart', bodyParser.json(), async (req, res, next) => {
 
 app.get('/purchase', async (req, res, next) => {
    await Purchase.find({}).populate('buy_id').then(found => {
-    console.log("poda", found[0].buy_id)
     res.json(found)
   })
 })
@@ -102,7 +98,6 @@ app.post('/purchase', bodyParser.json(), async (req, res, next) => {
       console.log(element)   
       if(element==buy_id && flag==1) {
         flag=0
-        console.log('0000000000000') 
       }
     })
     const find=await Cart.findOne({});
@@ -113,18 +108,16 @@ app.post('/purchase', bodyParser.json(), async (req, res, next) => {
       if(element==buy_id ) {
        console.log( find.card_id.splice(index, 1));
        await find.save()
-        console.log('111111111111111') 
       }
     })
    
 
     if(flag!=0 ){
-      console.log('2222222222222222')
       console.log(found)
       await found.buy_id.push(buy_id)
       console.log(found)
       await found.save()
-      //res.json(found)
+      res.json(found)
     };
    
   })
