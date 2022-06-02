@@ -66,17 +66,6 @@ app.post('/cart', bodyParser.json(), async (req, res, next) => {
   })
 
 
-  Cart.findOne({}, async (err, found) => {
-    if (err) {
-      console.log(err)
-    }
-    console.log(found)
-    await found.card_id.push(card_id)
-    console.log(found)
-    await found.save()
-    res.json(found)
-  })
-
 
 })
 
