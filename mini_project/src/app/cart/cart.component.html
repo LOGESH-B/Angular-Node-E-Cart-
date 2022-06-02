@@ -1,0 +1,26 @@
+<div class="text-center container">
+    <table class="table table-striped  table-hover mt-5" >
+        <thead>
+            <tr>
+                <th>Product NO</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Add Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor='let pro of products.card_id'>
+
+                <td>{{pro.p_id}}</td>
+                <td><a (click)='setdetail(pro.p_id)' routerLink="/details">{{pro.p_name}}</a></td>
+                <td>{{pro.p_type}}</td>
+                <td>{{pro.p_price}}</td>
+                <td><img src={{pro.p_url}} alt="" height="100" width="100"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

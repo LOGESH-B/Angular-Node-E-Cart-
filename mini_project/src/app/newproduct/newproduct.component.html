@@ -1,0 +1,22 @@
+
+
+<div class="text-center mt-5">
+    <h2>Add New Product</h2>
+    <form [formGroup]="newpro" (ngSubmit)="newproduct(newpro)">
+        <label for="p1">Product Id</label><br>
+        <input type="number" formControlName="p_id"><br>
+        <label for="p_name">Product Name</label><br>
+        <input type="text" formControlName="p_name"><br>
+        <label for="p_type">Product Type</label><br>
+        <input type="text" formControlName="p_type"><br>    
+        <label for="p_price">Price</label><br>
+        <input type="text" formControlName="p_price"><br>
+        <label for="p_url">Image Url</label><br>
+        <input type="text" formControlName="p_url"><br>
+        <label for="p_desc">Discription</label><br>
+        <textarea formControlName="p_desc" id="p_desc" cols="30" rows="10">Enter the Product Details.......</textarea><br>
+        <button type="submit" class="btn btn-success" [disabled]="!newpro.valid">Submit</button>
+    </form>
+
+
+</div>

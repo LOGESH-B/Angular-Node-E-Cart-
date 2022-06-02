@@ -1,0 +1,38 @@
+
+<div class="container text-center mt-5 " onload='getdetails()'>
+    <div class="row">
+        <div class="col-md-6 mb-5">
+            <img src={{product.p_url}} alt="">
+
+        </div>
+        <div class="col-md-6 ">
+            <table>
+                <tr>
+                    <th>Product ID</th>
+                    <td>{{product.p_id}}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td> {{product.p_name}}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td> {{product.p_type}}</td>
+                </tr>
+                <tr>
+                    <th>Discription</th>
+                    <td> {{product.p_desc}}</td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td class="fs-1"> ₹{{product.p_price}}</td>
+                </tr>
+                <tr>
+                        <td><a (click)='addbuy()' routerLink="/" class="btn btn-success px-4 mt-4">Buy</a></td>
+                        <td><a (click)='addcart()' routerLink="/"  class="btn btn-warning mt-4">Add Cart</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
